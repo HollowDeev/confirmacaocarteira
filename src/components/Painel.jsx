@@ -7,11 +7,11 @@ function Painel() {
     useEffect(() => {
         console.log(pagina)
     }, [pagina])
-    
+
  switch(pagina) { 
     case 'login': 
         return (
-            <div className="min-w-full">
+            <div className="w-full md:w-[400px]">
                 <Login definirPagina={definirPagina} />
             </div>
         )

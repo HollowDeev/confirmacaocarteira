@@ -7,7 +7,7 @@ function App() {
     <div className="flex flex-col min-h-screen justify-between ">
       <Header />
 
-      <div className="h-[500px] flex items-center justify-center">
+      <div className="h-[calc(100vh-100px)] flex items-center justify-center">
         <Painel />
       </div>
 
