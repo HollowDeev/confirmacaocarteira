@@ -1,12 +1,26 @@
 import { useEffect, useState } from "react"
 import Login from "./Login"
+import PaginaPrincipal from "./PaginaPrincipal"
+import Qrcode from "./Qrcode"
+import Qrvalidacao from "./Qrvalidacao"
 
 function Painel() {
     const [ pagina, definirPagina ] = useState('login')
 
     useEffect(() => {
         console.log(pagina)
-    }, [pagina])
+
+        const caminho = window.location.pathname
+        const auth = localStorage.getItem("autenticado");
+
+        if(caminho == '/hcnshqlsmthaua000000'){
+            definirPagina('qrvalidacao')
+        }else if(auth == 'true'){
+            definirPagina("principal")
+        }else {
+            definirPagina("login")
+        }
+    }, [])
 
  switch(pagina) { 
     case 'login': 
@@ -18,7 +32,23 @@ function Painel() {
 
     case 'principal':
         return (
-            <h1>Principal</h1>
+            <div className="w-full flex justify-center">
+                <PaginaPrincipal definirPagina={definirPagina}/>
+            </div>
+        )
+
+    case 'qrcode':
+        return (
+            <div className="w-full flex justify-center">
+                <Qrcode />
+            </div>
+        )
+
+    case 'qrvalidacao':
+        return (
+            <div className="w-full flex justify-center">
+                <Qrvalidacao />
+            </div>
         )
     
  }

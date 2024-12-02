@@ -18,6 +18,7 @@ function Login({definirPagina}) {
         erro: false,
         mensagem: 'Usuario Invalido'
       })
+      localStorage.setItem("autenticado", "true");
       definirPagina('principal')
     }else {
       definirErro({
